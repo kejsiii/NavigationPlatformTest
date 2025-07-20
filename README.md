@@ -1,73 +1,45 @@
-
 # Journey Sharing Platform
 
-This project is a backend web API for a journey sharing platform, developed using ASP.NET Core and Entity Framework Core.
+This is a backend web API for a journey sharing platform, developed using ASP.NET Core and Entity Framework Core. It enables users to track, manage, and share their journeys securely, including public shareable links.
 
-## Features
+## ✅ Features Implemented
 
-- Journey management with sharing and public links
-- User registration and authentication (with role-based access control)
-- Filtering, ordering, and paging for journey data
-- Secure public link generation and revocation
-- FluentValidation for robust data validation
-- Custom exception handling middleware
-- JWT-based authentication
-- Unit testing using xUnit and Moq
-- Swagger UI for API documentation
+- ✅ Journey management (CRUD operations)
+- ✅ Journey sharing with public and revocable links
+- ✅ User registration and login with JWT authentication
+- ✅ Role-based access control
+- ✅ Filtering, ordering, and pagination of journey data
+- ✅ Middleware for custom exception handling
+- ✅ FluentValidation for input validation
+- ✅ Unit tests written using xUnit and Moq (58% code coverage)
+- ✅ Swagger UI for API documentation
 
-## Project Structure
+##  Planned Features / Improvements
 
-```
-/Application
-/Domain
-/Infrastructure
-/WebAPI
-```
+- Serilog structured logging with correlation ID
+- Docker support with Dockerfile and `docker-compose.yml`
+- Health endpoints: `/healthz` (liveness) and `/readyz` (readiness)
+- Secrets configuration via environment variables or secret manager
+- Rate-limiting login endpoint (e.g. 5 attempts/min per IP)
+- GitHub Actions pipeline:
+  - Restore, build, and test backend
+  - Code coverage enforcement (≥70%)
+  - Roslyn analyzers + StyleCop
+  - Docker image build and push
+  - Run backend integration tests
 
 ## Tech Stack
 
-- .NET 7 / ASP.NET Core
+- .NET 8 / ASP.NET Core
 - Entity Framework Core
-- JWT Authentication
-- xUnit + Moq for unit testing
-- Swagger for API documentation
+- xUnit + Moq (unit testing)
+- Swagger / Swashbuckle
+- SQL Server (or any configured database)
+- GitHub for version control
 
-## How to Run
-
-1. Clone the repository
-```bash
-git clone https://github.com/your-username/journey-sharing-backend.git
-cd journey-sharing-backend
-```
-
-2. Setup the database (SQL Server or your preferred DB)
-3. Run the project using Visual Studio or CLI:
-```bash
-dotnet build
-dotnet ef database update
-dotnet run --project WebAPI
-```
-
-4. Open Swagger UI:
-```
-https://localhost:{port}/swagger/index.html
-```
-
-## Test
-
-```bash
-dotnet test --collect:"XPlat Code Coverage"
-```
-
-Ensure coverage is ≥ 70%.
-
-## Future Improvements
-
-- Docker support
-- GitHub Actions CI/CD pipeline
-- Serilog for logging (optional)
-- Redis/Memcached for caching
-
-## License
-
-MIT
+##  Project Structure
+/Application → Business logic, services, validators
+/Domain → Entities and interfaces
+/Infrastructure → EF Core, DbContext, repositories
+/Presentation → Web API controllers, middleware, program startup
+/Tests → Unit tests using xUnit and Moq
